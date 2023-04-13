@@ -1,0 +1,17 @@
+import requests
+from bs4 import  BeautifulSoup
+import pandas as pd
+
+tor_url = "https://www.dan.me.uk/tornodes"
+
+down_html = requests.get(tor_url)
+
+soup = BeautifulSoup(down_html.text, 'html.parser')
+f_table = soup.findAll("div", class_ = "article box")[0]
+print(f_table)
+#m_data = f_table.select('br')
+#print(m_data)
+
+#pathF = "C:\\Users\\xXx\\Downloads\\plik.txt"
+#f = open(pathF, "w")
+#f.write(str(m_data))
